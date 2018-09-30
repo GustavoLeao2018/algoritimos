@@ -2,7 +2,7 @@
 # -*- coding: utf -*-
 """Programa para criar estrelas."""
 
-
+from random import randint
 from pygame import *
 from sys import  exit
 
@@ -19,12 +19,15 @@ def tela():
     janela = display.set_mode(tamanho)
     display.set_caption("Criando estrelas")
 
-    x = 50
-    y = 50
+    quantidade = 1000
+    lista = [randint(0, 800) for numero in range(quantidade)]
+    lista_2 = [randint(0, 600) for numero in range(quantidade)]
 
     FPS = 60
 
     clock = time.Clock()
+
+    estrelas = []
 
     init()
     while True:
@@ -33,24 +36,9 @@ def tela():
                 exit()
             elif evento.type == KEYDOWN and evento.key == K_ESCAPE:
                 exit()
-            elif evento.type == KEYDOWN and evento.key == K_RIGHT:
-                x += 5
-                y += 0
-                estrela.move(x, y)
-            elif evento.type == KEYDOWN and evento.key == K_LEFT:
-                x -= 5
-                y -= 0
-                estrela.move(x, y)
-            elif evento.type == KEYDOWN and evento.key == K_DOWN:
-                x += 0
-                y += 5
-                estrela.move(x, y)
-            elif evento.type == KEYDOWN and evento.key == K_UP:
-                x -= 0
-                y -= 5
-                estrela.move(x, y)
 
-        estrela = criar_estrelas(janela, x, y, 5, 5)
+        for cont in range(quantidade):
+            estrelas.append(criar_estrelas(janela, lista[cont], lista_2[cont], 2, 2))
 
         clock.tick(FPS)
         display.update()

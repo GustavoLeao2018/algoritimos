@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "Exercício 1:"
 echo "Criando a pasta exercicio_1"
@@ -32,6 +32,13 @@ echo """/__pycache__/
 echo
 echo "Inicializando o repositório"
 git init
+echo
+
+
+echo
+echo "Colocando as configurações de usuário e email"
+git config --global user.name "GustavoLeao2018"
+git config --global user.email "gustavo.leao.nogueira.2018@gmail.com"
 echo
 
 echo ".gitignore adicionado"
@@ -87,4 +94,75 @@ git log
 echo
 
 
+echo "Adicionando repositório extra:"
+git remote add origin https://github.com/GustavoLeao2018/aulas-estudo.git
+echo
+
+
+echo "Enviando para o repositório"
+git push -u origin master
+echo
+
+echo "Adicionado em um outro repositório, (simulando no repositório)"
+echo "Voltando para a pasta anterior"
+cd ..
+echo
+
+echo "Criando uma outra pasta"
+mkdir exercicio_1_outro_repositorio
+echo
+
+echo "Entrando na pasta"
+cd exercicio_1_outro_repositorio
+echo
+
+echo "Clonando o repositório"
+git clone https://github.com/GustavoLeao2018/aulas-estudo.git
+echo
+
+echo "Entrando na pasta"
+cd aulas-estudo
+echo
+
+
+echo "Criando o README.md"
+touch README.md
+echo
+
+echo "Arquivo README.md alterado"
+git add README.md
+echo
+
+echo "README.md commitado"
+git commit -m "Arquivo README.md alterado!"
+echo
+
+echo "Status mostrado"
+git status
+echo
+
+echo "Log mostrado"
+git log
+echo
+
+echo "Adicionando repositório extra:"
+git remote add origin https://github.com/GustavoLeao2018/aulas-estudo.git
+echo
+
+
+echo "Enviando para o repositório"
+git push -u origin master
+echo
+
+
+echo "Voltando pra anterior"
+cd ..
+echo
+
+echo "Indo pro outro"
+cd exercicio_1
+echo
+
+echo "Sincronizando"
+git pull
 
